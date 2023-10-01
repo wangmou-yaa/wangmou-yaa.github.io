@@ -1,0 +1,71 @@
+body {
+    background-color: black;
+}
+h1
+  {
+  color:#ffffff;
+  text-align: center;
+  border: 3px solid rgb(255, 255, 255);
+  }
+h2 {
+  color:#ffffff;
+}
+h3 {
+  color:#ffffff;
+}
+h4
+{
+  color:#ffffff;
+}
+h5
+{
+  color:#3da8ff;
+  text-align: center;
+}
+p
+  {
+  color:rgb(255, 255, 255);
+  font-style: italic;
+  }
+
+.button {
+  text-align: center;
+    background-color: rgb(0, 0, 0); 
+    color: rgb(255, 255, 255); 
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 9px;
+    font-size:1em;
+    transition-duration: 0.8s
+}
+  
+.button:hover {
+    background-color: #11c7ff;
+    color: white;
+}
+.center {
+  text-align: center
+}
+a:link {
+  color: aquamarine;
+  text-decoration: none;
+}
+a:hover {
+  color: skyblue;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(28, 160, 255);
+  text-decoration: none;
+}
+/* 设置图片的初始大小 */
+.change_small img {
+  width: 100%;
+  height: auto;
+  transition-duration: 0.8s
+ }
+ 
+ /* 设置鼠标悬停时的图片大小 */
+ .change_small:hover img {
+  width: 80%;
+  height: 80%;
+ }
