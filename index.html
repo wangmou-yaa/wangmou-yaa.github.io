@@ -6,44 +6,101 @@
   <meta name="msvalidate.01" content="1D52BACF1880D041297C4DC437D0118E" />
   <title>Detect</title>
   <style>
-    h2,h3 {
-        display: inline;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
     }
-    form,h4 {
-        display: inline;
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #4a4a4a;
+    }
+    .device-type {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .device-type h2, .device-type h3 {
+      margin: 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    label {
+      margin-bottom: 10px;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 3px;
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #re {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-    <h1>访问验证</h1>
-  <h2>设备类型:</h2>
-  <h3 id="result"></h3>
-  <script>
+<div class="container">
+    <h1>Access Verification</h1>
+    <div class="device-type">
+      <h2>Device Type:</h2>
+      <h3 id="result"></h3>
+    </div>
+    <script>
       var screenWidth = window.innerWidth;
       if (screenWidth < 768) {
-          document.getElementById('result').innerHTML = '手机';
+          document.getElementById('result').innerText = 'Mobile phone';
       } else {
-          document.getElementById('result').innerHTML = '电脑';
+          document.getElementById('result').innerText = 'Computer';
       }
-  </script>
-  <br>
-  <form>
-      <label for="question1">人机验证</label>
-      <h2>↓</h2>
-      <br>
-      <input type="radio" id="question1" name="question1" value="1">
-      <label for="question1">我不是机器人</label><br>
-      <button type="button" onclick="checkAnswer()">验证</button>
-  </form>
-  <h4 id="re"></h4>
+    </script>
+    <form>
+        <label>
+            <input type="radio" id="question1" name="question1" value="1" required>
+            I am not a robot.
+        </label>
+        <button type="submit" onclick="return checkAnswer()">Checking</button>
+    </form>
+    <h4 id="re"></h4>
+  </div>
   <script>
       function checkAnswer() {
           const question1 = document.getElementById('question1');
           if (question1.checked) {
-              document.getElementById('re').innerHTML = '验证成功';
-              window.location.href = 'homepage.html';
+              document.getElementById('re').innerHTML = 'Successful.';
+              setTimeout(function() { window.location.href = 'homepage.html'; }, 1000);
           } else {
-              document.getElementById('re').innerHTML = '验证失败';
+              document.getElementById('re').innerHTML = 'Failed.';
+              return false;
           }
       }
   </script>
