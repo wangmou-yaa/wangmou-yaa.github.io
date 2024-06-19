@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="msvalidate.01" content="1D52BACF1880D041297C4DC437D0118E" />
-  <title>Detect</title>
-  <style>
-    body {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="msvalidate.01" content="1D52BACF1880D041297C4DC437D0118E" />
+<title>Detect</title>
+<style>
+  body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #333;
@@ -66,7 +66,7 @@
       margin-top: 20px;
       font-weight: bold;
     }
-  </style>
+</style>
 </head>
 <body>
 <div class="container">
@@ -78,26 +78,28 @@
     <script>
       document.getElementById('result').innerText = window.innerWidth < 768 ? 'Mobile phone' : 'Computer';
     </script>
-    <form>
+    <form onsubmit="return checkAnswer(event)">
         <label>
             <input type="radio" id="question1" name="question1" value="1" required>
             I am not a robot.
         </label>
-        <button type="submit" onclick="return checkAnswer()">Checking</button>
+        <button type="submit">Checking</button>
     </form>
     <h4 id="re"></h4>
-  </div>
-  <script>
-      function checkAnswer() {
-          const question1 = document.getElementById('question1');
-          if (question1.checked) {
-              document.getElementById('re').innerHTML = 'Successful.';
-              setTimeout(function() { window.location.href = 'https://fasttool.pages.dev/homepage.html'; }, 1000);
-          } else {
-              document.getElementById('re').innerHTML = 'Failed. If you are unable to redirect to the website properly, please wait a few seconds and try again. Thank you for your cooperation.';
-              return false;
-          }
-      }
-  </script>
+</div>
+<script>
+    function checkAnswer(event) {
+        event.preventDefault();
+        const question1 = document.getElementById('question1');
+        if (question1.checked) {
+            document.getElementById('re').innerHTML = 'Successful.';
+            setTimeout(function() {
+                window.location.href = 'https://fasttool.pages.dev/homepage.html';
+            }, 1000);
+        } else {
+            document.getElementById('re').innerHTML = 'Failed. If you are unable to redirect to the website properly, please wait a few seconds and try again. Thank you for your cooperation.';
+        }
+    }
+</script>
 </body>
 </html>
