@@ -1,29 +1,143 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Help for launcher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>F+Launcher Help</title>
 </head>
 <body>
-<body>
-    <a href="homepage.html"><button class="button">返回主页</button></a>
-    
-    <h1>介绍</h1>
-    
-    <h2>该项目为Minecraft游戏的启动器。为Python语言编写，且程序运行效果类似于终端</h2>
-    <img src="F+Launcher_icon.jpg">
-    <h1>截图</h1>
-    <div class="change_small">
-        <img src="launcher_1.png">
-    </div>
-    <div class="change_small">
-        <img src="launcher_2.png">
-    </div>
-    <h1>下载方式</h1>
-    <h2>1.蓝奏云网盘(推荐)</h2>
-    <h3><a href="https://wwxt.lanzout.com/iTROb1ag6toh">点击下载</a> 密码:7n8u</h3>
-    <h2>2.Github</h2>
-    <h3><a href="https://github.com/wangmou-yaa/F-Launcher/releases">点击访问</a></h3>>
-    <h5>BSD-2 Licensed | Copyright © 2023 Wangmou-yaa. All rights reserved.</h5>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/homepage.html" class="nav-link">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="animated fadeIn">Introduction</h1>
+        <p class="animated fadeInUp">A Minecraft game launcher written in Python, featuring a terminal-like interface.</p>
+        <img src="F+Launcher_icon.jpg" alt="F+Launcher Icon" class="animated zoomIn">
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+        <h2 class="animated fadeIn">Screenshots</h2>
+        <div class="screenshot-container animated slideInLeft">
+            <img src="launcher_1.png" alt="Launcher Screenshot 1">
+        </div>
+        <div class="screenshot-container animated slideInRight delay-1s">
+            <img src="launcher_2.png" alt="Launcher Screenshot 2">
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download">
+        <h2 class="animated fadeInUp">Download</h2>
+        <div class="download-option animated fadeInDown delay-05s">
+            <strong>1. Recommended: Lanzou Cloud</strong><br>
+            <a href="https://wwxt.lanzout.com/iTROb1ag6toh">Click to Download</a> Password: 7n8u
+        </div>
+        <div class="download-option animated fadeInUp delay-1s">
+            <strong>2. Github</strong><br>
+            <a href="https://github.com/wangmou-yaa/F-Launcher/releases">Visit Releases</a>
+        </div>
+        <p class="copyright animated fadeInUp delay-1-5s">BSD-2 Licensed &copy; 2023 Wangmou-yaa. All rights reserved.</p>
+    </section>
+
+    <!-- CSS Styles -->
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .navbar {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-list {
+            list-style-type: none;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0;
+        }
+        .nav-item {
+            margin-left: 1rem;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #ddd;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .animated {
+            opacity: 0;
+        }
+        .fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+        .fadeInUp {
+            animation: fadeInUp 1s ease forwards;
+        }
+        .zoomIn {
+            animation: zoomIn 0.5s ease forwards;
+        }
+        .slideInLeft {
+            animation: slideInLeft 1s ease forwards;
+        }
+        .slideInRight {
+            animation: slideInRight 1s ease forwards;
+        }
+        .delay-1s {
+            animation-delay: 1s;
+        }
+        .delay-05s {
+            animation-delay: 0.5s;
+        }
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+@keyframes zoomIn {
+    from {transform: scale(0.8);}
+    to {transform: scale(1);}
+}
+@keyframes slideInLeft {
+    from {transform: translateX(-100px);}
+    to {transform: translateX(0);}
+}
+@keyframes slideInRight {
+    from {transform: translateX(100px);}
+    to {transform: translateX(0);}
+}
+.delay-1s {
+    animation-delay: 1s;
+}
+.delay-05s {
+    animation-delay: 0.5s;
+}
+    </style>
 </body>
 </html>
