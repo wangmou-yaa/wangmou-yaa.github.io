@@ -1,18 +1,94 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-        
+    <title>wangmou-yaa's Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: #4CAF50;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            transition: all 0.3s ease-out;
+        }
+        .button:hover {background-color: #3e8e41}
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #4CAF50;
+            padding: 1rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .animated {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
     </style>
-    <title>wangmou-yaa的网站</title>
 </head>
 <body>
-    <h1>欢迎访问[wangmou-yaa]的网站</h1>
-    <a href="about.html"><button class="button">关于作者</button></a>
-    <h3>适用于Minecraft游戏的软件/插件/......</h3>
-    <a href="homepage_minecraft.html"><button class="button">查看更多</button></a>
-    <h3>各种实用的软件</h3>
-    <a href="apps.html"><button class="button">查看更多</button></a>>
-        <h5>本网站由<a href="https://github.com/wangmou-yaa">wangmou-yaa</a>制作</h5>
-    <h5>BSD-2 Licensed | Copyright © 2023 Wangmou-yaa</h5>
+    <nav class="animated">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="homepage_minecraft.html">Minecraft Zone</a>
+        <a href="apps.html">Useful Tools</a>
+    </nav>
+    <div class="container animated">
+        <h1>Welcome to wangmou-yaa's Website</h1>
+        <a href="about.html" class="button">About Author</a>
+        <h3>Software/Plugins/More for Minecraft</h3>
+        <a href="homepage_minecraft.html" class="button">See More</a>
+        <h3>Various Practical Tools</h3>
+        <a href="apps.html" class="button">Explore More</a>
+        <h5>This website is crafted by <a href="https://github.com/wangmou-yaa">wangmou-yaa</a></h5>
+        <h5>BSD-2 Licensed | Copyright © 2023 Wangmou-yaa</h5>
+    </div>
 </body>
+</html>
