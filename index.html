@@ -76,12 +76,7 @@
       <h3 id="result"></h3>
     </div>
     <script>
-      var screenWidth = window.innerWidth;
-      if (screenWidth < 768) {
-          document.getElementById('result').innerText = 'Mobile phone';
-      } else {
-          document.getElementById('result').innerText = 'Computer';
-      }
+      document.getElementById('result').innerText = window.innerWidth < 768 ? 'Mobile phone' : 'Computer';
     </script>
     <form>
         <label>
@@ -97,9 +92,9 @@
           const question1 = document.getElementById('question1');
           if (question1.checked) {
               document.getElementById('re').innerHTML = 'Successful.';
-              setTimeout(function() { window.location.href = '/homepage.html'; }, 1000);
+              setTimeout(function() { window.location.href = '/homepage.html'; }, 500);
           } else {
-              document.getElementById('re').innerHTML = 'Failed.';
+              document.getElementById('re').innerHTML = 'Failed. If you are unable to redirect to the website properly, please wait a few seconds and try again. Thank you for your cooperation.';
               return false;
           }
       }
