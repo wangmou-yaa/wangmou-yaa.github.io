@@ -1,0 +1,53 @@
+F+Launcher
+介绍
+F+Launcher是一款便捷的Minecraft启动器，支持快速下载与启动原版、Forge及Fabric游戏版本，具备自定义分辨率、演示模式等实用功能，提升游戏体验。 详细请见Github - 搜索 "wangmou-yaa"
+F+Launcher 游戏启动器详细使用手册：
+1. 下载游戏
+要下载 Minecraft 游戏的不同版本，使用以下命令格式：
+原版 Minecraft:
+download Or 所需游戏版本号
+示例：下载原版 1.18.1 版本
+download Or 1.18.1
+Forge 版本:
+download Fo 所需游戏版本号 [可选：特定Forge版本号]
+示例：下载 Forge 1.18.1，默认最新Forge版本
+download Fo 1.18.1
+或指定Forge版本号
+download Fo 1.18.1 1.18.1.2847
+Fabric 版本:
+download Fa 所需游戏版本号
+示例：下载 Fabric 1.18.1 版本
+download Fa 1.18.1
+2. 运行游戏
+启动已下载的游戏版本，使用如下命令格式：
+原版:
+run Or 游戏版本号
+示例：运行原版 1.18.1
+run Or 1.18.1
+Forge:
+run Fo 游戏版本号 [可选：特定Forge版本号]
+示例：运行 Forge 1.18.1，默认最新Forge版本
+run Fo 1.18.1
+或指定Forge版本号
+run Fo 1.18.1 1.18.1.2847
+Fabric:
+run Fa 游戏版本号
+示例：运行 Fabric 1.18.1
+run Fa 1.18.1
+3. 自定义分辨率
+调整游戏窗口的分辨率，执行命令：
+RLON
+这会打开一个界面供你选择分辨率。
+4. 演示模式开关
+开启演示模式:
+demo on
+关闭演示模式:
+demo off
+5. 退出程序
+关闭 F+Launcher 应用，输入：
+exit
+6. 查看关于信息
+获取 F+Launcher 的版本信息及版权详情，请键入：
+about
+
+以上便是 F+Launcher 的基础操作指南。如遇任何困难，欢迎随时联系客服支持。祝您游戏愉快！
