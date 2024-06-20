@@ -1,4 +1,4 @@
-// Don't know what to do with this javascript class? Please visit 'https://github.com/wangmou-yaa/LoadingAnimations.js' for more info.
+// Don't know what to do with this javascript class? Please visit 'https://github.com/wangmou-yaa/LoadingAnimations.js' for more info. (OR in 'https://gitee.com/wangmou-yaa/LoadingAnimations.js')
 
 class LoadingAnimations {
     constructor(options = {}) {
@@ -119,10 +119,10 @@ class LoadingAnimations {
     }
 
     observeImages() {
+        if (document.body) {
         this.totalImages = document.querySelectorAll('img').length;
         this.addImageListeners(document.querySelectorAll('img'));
-
-        const observer = new MutationObserver(mutations => {
+            const observer = new MutationObserver(mutations => {
             mutations.forEach(mutation => {
                 mutation.addedNodes.forEach(node => {
                     if (node.tagName === 'IMG') {
@@ -132,8 +132,14 @@ class LoadingAnimations {
                 });
             });
         });
+        
         observer.observe(document.body, { childList: true, subtree: true });
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            this.observeImages();
+        });
     }
+}
 
     addImageListeners(images) {
         images.forEach(img => {
@@ -181,23 +187,12 @@ unbindEvents() {
 }
 }
 
-const loader = new LoadingAnimations({ observeImages: true,
-     customCSS: '/* your custom CSS here */',
-      customSpinnerClass: 'custom-spinner',
-       customErrorClass: 'custom-error',
-        customTransitionClass: 'custom-transition',
-         onImageLoaded: (img) => {
-             console.log('Image loaded: ${img.src}');
-             },
-          onError: (img) => {
-             console.error('Image loading failed: ${img.src}');
-             },
-           onFinishLoading: () => 
-            { console.log('All images loaded');
-             },
-            onProgress: (loaded, total) => {
-                 console.log('Image loading progress: ${loaded}/${total}');
-                 },retryOnError: true, maxRetries: 3, retryDelay: 1000,
-            });
-
-loader.destroy() // When no longer needed, destroy the component to clean up resources.
+document.addEventListener('DOMContentLoaded', () => {
+    const loader = new LoadingAnimations({
+        observeImages: true,
+        onProgress: (loaded, total) => { console.log(`Image loading progress: ${loaded} / ${total} `);
+        onFinishLoading: () => { console.log('All images loaded'); }
+        }
+    });
+});
+// loader.destroy() // When no longer needed, destroy the component to clean up resources.
