@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALOA-Start</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="search.html">Search</a>
+        <a href="about.html">About</a>
+    </div>
+    <h1>Welcome to ALOA-Start</h1>
+    <h2>This is the search page</h2>
+    <form id="search-form">
+        <div class="input-container">
+            <input type="text" id="input" required="">
+            <label for="input" class="label">Enter your search query, then press the Enter key</label>
+            <div class="underline"></div>
+        </div>
+    </form>
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const searchInput = document.getElementById('input').value;
+
+    if (searchInput.startsWith('/')) {
+        window.location.href = searchInput.substring(1) + '.html';
+    } else {
+        window.location.href = '404.html';
+    }
+});
+    </script>
+    <h2>Commands:</h2>
+    <ul>
+        <li>/[message] - Go to the website about [message]</li>
+    </ul>
+    <h5>BSD-2 License | Copyright © 2024 Wangmou-yaa. All rights reserved.</h5>
+</body>
+</html>

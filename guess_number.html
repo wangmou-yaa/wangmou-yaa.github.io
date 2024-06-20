@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WMA-Guess the number</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        #progress-bar-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        #progress-bar {
+            height: 20px;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        input[type="number"] {
+            width: 100px;
+            margin-right: 10px;
+        }
+        
+        button {
+            padding: 5px 10px;
+        }</style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+        <a href="about.html">About</a>
+    </div>
+    <h1>Guess the number game</h1>
+    <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+    </div>
+    <p id="feedback"></p>
+    <input type="number" id="guess" min="1" max="100">
+    <button onclick="checkGuess()">Guess</button>
+    <p id="attempts"></p>
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let guess;
+        let attempts = 0;
+        let maxAttempts = 10;
+        let progressBar = document.getElementById('progress-bar');
+        
+        function checkGuess() {
+            guess = document.getElementById('guess').value;
+            attempts++;
+            document.getElementById('attempts').textContent = `You have tried ${attempts} times`;
+        
+            let progress = (attempts / maxAttempts) * 100;
+            progressBar.style.width = progress + '%';
+        
+            if (guess < randomNumber) {
+                document.getElementById('feedback').textContent = 'Too low, try again.';
+            } else if (guess > randomNumber) {
+                document.getElementById('feedback').textContent = 'Too high, try again.';
+            } else {
+                document.getElementById('feedback').textContent = `Congratulations! You guessed the number. You have tried ${attempts} times to get it right.`;
+                setTimeout(function() {
+                    alert('The page is refreshed.');
+                    location.reload();
+                }, 1);
+            }
+        
+            if (attempts === maxAttempts) {
+                document.getElementById('feedback').textContent = `Sorry, you did not guess the number. The correct answer is ${randomNumber}.`;
+                progressBar.style.width = '100%';
+                setTimeout(function() {
+                    alert('The page is refreshed.');
+                    location.reload(); 
+                }, 1);
+            }
+        }
+        
+        document.getElementById('guess').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkGuess();
+            }
+        });
+    </script>
+</body>
+</html>
+

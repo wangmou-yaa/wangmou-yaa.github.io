@@ -92,12 +92,12 @@
         event.preventDefault();
         const question1 = document.getElementById('question1');
         if (question1.checked) {
-            document.getElementById('re').innerHTML = 'Successful.';
+            document.getElementById('re').innerHTML = 'Successful, please wait few seconds';
             setTimeout(function() {
-                window.location.href = 'https://fasttool.pages.dev/homepage.html';
+                window.location.href = '/home.html';
             }, 1000);
         } else {
-            document.getElementById('re').innerHTML = 'Failed. If you are unable to redirect to the website properly, please wait a few seconds and try again. Thank you for your cooperation.';
+            document.getElementById('re').innerHTML = 'Failed. If you are unable to redirect to the website properly, please wait few seconds and try again. Thank you for your cooperation.';
         }
     }
 </script>

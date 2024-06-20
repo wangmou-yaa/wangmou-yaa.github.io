@@ -1,82 +1,209 @@
-body {
-    background-color: black;
-}
-h1
-  {
-  color:#ffffff;
-  text-align: center;
-  border: 3px solid rgb(255, 255, 255);
-  }
-h2 {
-  text-align: center;
-  color:#ffffff;
-  transition-duration: 0.8s
-}
-h2:hover {
-  color: #a8ecff;
- }
-h3,h4 {
-  text-align: center;
-  color:#ffffff;
-}
-h5
-{
-  color:#3da8ff;
-  text-align: center;
-}
-p
-  {
-    text-align: center;
-    color:rgb(255, 255, 255);
-    font-style: italic;
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
   }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  text-align: center;
-  background-color: rgb(0, 0, 0); 
-  color: rgb(255, 255, 255); 
-  border: 3px solid rgb(255, 255, 255);
-  border-radius: 9px;
-  font-size:1em;
-  transition-duration: 0.8s
-}
-  
-.button:hover {
-    background-color: #11c7ff;
+  .navbar a {
+    float: left;
+    display: block;
     color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    transition-duration: 0.5s;
+    background-color: #ddd;
+    color: black;
+  }
+
+  .navbar {
+    opacity: 0.8;
+  }
+
+  .navbar {
+    display: block;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.center {
-  text-align: center
+body {
+    color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-a:link {
-  transition-duration: 0.8s;
-  color: rgb(127, 234, 255);
+h1 {
+    margin-top: 50px;
+    font-size: 55px;
+}
+h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+h5
+  {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+  }
+h6
+  {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+p {
+    margin-top: 10px;
+}
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
   text-decoration: none;
-}
-a:hover {
-  transition-duration: 0.8s;
-  color: rgb(0, 183, 255);
-  text-decoration: none;
-}
-a:visited {
-  color: rgb(0, 51, 255);
-  text-decoration: none;
-}
-/* 设置图片的初始大小 */
-.change_small img {
-  text-align: center;
-  width: 100%;
-  height: auto;
-  transition-duration: 0.8s
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
  }
  
- /* 设置鼠标悬停时的图片大小 */
- .change_small:hover img {
-  text-align: center;
-  width: 110%;
-  height: 110%;
+ button.learn-more {
+  width: 12rem;
+  height: auto;
  }
+ 
+ button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+ }
+ 
+ button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+ }
+ 
+ button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+ }
+ 
+ button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+ }
+ 
+ button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+ }
+ 
+ button:hover .circle {
+  width: 100%;
+ }
+ 
+ button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+ }
+ 
+ button:hover .button-text {
+  color: #fff;
+ }
+ .input-container {
+  position: relative;
+  margin: 50px auto;
+  width: 200px;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
