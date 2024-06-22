@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="msvalidate.01" content="1D52BACF1880D041297C4DC437D0118E" />
-<title>Detect</title>
+<title>WMA-CHECK</title>
+<link rel="stylesheet" href="style.css">
 <style>
   body {
       font-family: Arial, sans-serif;
@@ -13,12 +14,17 @@
       margin: 0;
       padding: 0;
       background-color: #f0f0f0;
-    }
+      background-image: url('https://bing.img.run/rand_uhd.php');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+  }
     .container {
       max-width: 800px;
       margin: 50px auto;
       padding: 20px;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.8); /* 半透明的白色背景 */
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       border-radius: 5px;
     }
@@ -59,6 +65,7 @@
       margin-top: 20px;
     }
     button:hover {
+      transition-duration: 0.5s;
       background-color: #0056b3;
     }
     #re {
@@ -87,6 +94,7 @@
     </form>
     <h4 id="re"></h4>
 </div>
+<h5>BSD-2 Licensed | Copyright © 2024 Wangmou-yaa. All rights reserved.</h5>
 <script>
     function checkAnswer(event) {
         event.preventDefault();
