@@ -44,6 +44,7 @@
         <a href="about.html">About</a>
     </div>
     <h1>Guess the number game</h1>
+    <p>You have 10 chances to guess the number between 1 to 100</p>
     <div id="progress-bar-container">
         <div id="progress-bar"></div>
     </div>
@@ -73,18 +74,18 @@
             } else {
                 document.getElementById('feedback').textContent = `Congratulations! You guessed the number. You have tried ${attempts} times to get it right.`;
                 setTimeout(function() {
-                    alert('The page is refreshed.');
+                    alert('Congratulations!');
                     location.reload();
-                }, 1);
+                }, 2000);
             }
         
             if (attempts === maxAttempts) {
                 document.getElementById('feedback').textContent = `Sorry, you did not guess the number. The correct answer is ${randomNumber}.`;
                 progressBar.style.width = '100%';
                 setTimeout(function() {
-                    alert('The page is refreshed.');
+                    alert('Oh,no!');
                     location.reload(); 
-                }, 1);
+                }, 2000);
             }
         }
         

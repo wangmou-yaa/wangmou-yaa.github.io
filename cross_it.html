@@ -18,7 +18,7 @@ var myScore;
 
 function startGame() {
     myGamePiece = new component(30, 30, "green", 10, 120);
-    myGamePiece.gravity = 0.05;
+    myGamePiece.gravity = 0.1;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
 }
@@ -99,7 +99,6 @@ function component(width, height, color, x, y, type) {
         return crash;
     }
 }
-
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
@@ -109,19 +108,19 @@ function updateGameArea() {
     }
     myGameArea.clear();
     myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+    if (myGameArea.frameNo == 1 || everyinterval(75)) {
         x = myGameArea.canvas.width;
         minHeight = 140;
         maxHeight = 300;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
         minGap = 55;
-        maxGap = 100;
+        maxGap = 90;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
         myObstacles.push(new component(10, height, "red", x, 0));
         myObstacles.push(new component(10, x - height - gap, "red", x, height + gap));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
+        myObstacles[i].x += -2;
         myObstacles[i].update();
     }
     myScore.text="SCORE: " + myGameArea.frameNo;
@@ -140,18 +139,25 @@ function accelerate(n) {
 }
 document.addEventListener('keydown', (e) => {
             if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'W' || e.key === 'I') {
-                accelerate(-0.2)
+                accelerate(-0.15)
             }
         });
 document.addEventListener('keyup', (e) => {
     if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'W' || e.key === 'I') {
-        accelerate(0.05)
+        accelerate(0.08)
     }
 });
+const button = document.createElement('button');
+button.textContent = 'UP';
+button.addEventListener('mousedown', accelerate(-0.2));
+button.addEventListener('mouseup', accelerate(0.05));
+document.body.appendChild(button);
 </script>
 <br></br>
-<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">UP</button>
-<P>CLICK ↑↑↑</P>
+<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">UP (COMPUTER)</button>
+<button ontouchstart="accelerate(-0.2)" ontouchend= "accelerate(0.05)">UP (PHONE)</button>
+<P>CLICK HERE ↑↑↑</P>
+<button onclick="location.reload()">RESET</button>
 <div class="navbar">
     <a href="home.html">Home</a>
     <a href="search.html">Search</a>
