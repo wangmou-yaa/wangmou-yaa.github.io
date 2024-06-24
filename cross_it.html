@@ -19,7 +19,7 @@ var myScore;
 function startGame() {
     myGamePiece = new component(30, 30, "green", 10, 120);
     myGamePiece.gravity = 0.1;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myScore = new component("30px", "Lucida Console", "black", 280, 40, "text");
     myGameArea.start();
 }
 
@@ -30,9 +30,10 @@ var myGameArea = {
         this.canvas.height = 540;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
-        },
+    },
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
@@ -66,15 +67,15 @@ function component(width, height, color, x, y, type) {
         this.y += this.speedY + this.gravitySpeed;
         this.hitBottom();
         if (this.x < 0) {
-    this.x = 0;
-  } else if (this.x + this.width > myGameArea.canvas.width) {
-    this.x = myGameArea.canvas.width - this.width;
-  }
-  if (this.y < 0) {
-    this.y = 0;
-  } else if (this.y + this.height > myGameArea.canvas.height) {
-    this.y = myGameArea.canvas.height - this.height;
-  }
+            this.x = 0;
+        } else if (this.x + this.width > myGameArea.canvas.width) {
+            this.x = myGameArea.canvas.width - this.width;
+        }
+        if (this.y < 0) {
+            this.y = 0;
+        } else if (this.y + this.height > myGameArea.canvas.height) {
+            this.y = myGameArea.canvas.height - this.height;
+        }
     }
     this.hitBottom = function() {
         var rockbottom = myGameArea.canvas.height - this.height;
@@ -99,6 +100,7 @@ function component(width, height, color, x, y, type) {
         return crash;
     }
 }
+
 function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
@@ -134,14 +136,23 @@ function everyinterval(n) {
     return false;
 }
 
+var myGamePiece = {
+    gravity: 1
+};
+
 function accelerate(n) {
+    if (typeof myGamePiece !== 'object' || !myGamePiece.hasOwnProperty('gravity')) {
+        console.error('myGamePiece is not properly initialized.');
+        return;
+    }
     myGamePiece.gravity = n;
 }
+
 document.addEventListener('keydown', (e) => {
-            if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'W' || e.key === 'I') {
-                accelerate(-0.15)
-            }
-        });
+    if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'W' || e.key === 'I') {
+        accelerate(-0.15)
+    }
+});
 document.addEventListener('keyup', (e) => {
     if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'W' || e.key === 'I') {
         accelerate(0.08)
@@ -152,12 +163,39 @@ button.textContent = 'UP';
 button.addEventListener('mousedown', accelerate(-0.2));
 button.addEventListener('mouseup', accelerate(0.05));
 document.body.appendChild(button);
+
+function saveHighScore(score) {
+    if (score !== undefined) {
+        var expires = new Date();
+        expires.setFullYear(expires.getFullYear() + 1);
+        document.cookie = "highScore=" + score + "; expires=" + expires.toUTCString() + "; SameSite=None; Secure"
+    }
+}
+
+function loadHighScore() {
+    var highScore = localStorage.getItem("highScore");
+    return highScore == null ? 0 : parseInt(highScore);
+}
+
+function displayHighScore() {
+    var highScore = loadHighScore();
+    if (highScore !== null) {
+        if (document.getElementById("high-score") !== null) {
+            document.getElementById("high-score").innerText = highScore;
+        }
+    }
+}
+
+
+displayHighScore();
+
 </script>
 <br></br>
 <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">UP (COMPUTER)</button>
 <button ontouchstart="accelerate(-0.2)" ontouchend= "accelerate(0.05)">UP (PHONE)</button>
 <P>CLICK HERE ↑↑↑</P>
 <button onclick="location.reload()">RESET</button>
+<p>Your current high score is: <span id="highScoreDisplay"></span></p>
 <div class="navbar">
     <a href="home.html">Home</a>
     <a href="search.html">Search</a>
